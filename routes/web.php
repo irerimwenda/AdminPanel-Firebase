@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/firebase', 'FirebaseController@index')->name('firebase');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
