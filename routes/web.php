@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/firebase', 'FirebaseController@index')->name('firebase');
+Route::get('/links', 'LinkController@index')->name('link');
 
 Auth::routes();
 
