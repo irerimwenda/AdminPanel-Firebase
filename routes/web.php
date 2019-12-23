@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/firebase', 'FirebaseController@index')->name('firebase');
-Route::get('/links', 'LinkController@index')->name('link');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/firebase', 'FirebaseController@index')->name('firebase');
+Route::get('/links', 'LinkController@index')->name('link');
+Route::post('/add-link', 'LinkController@addLink')->name('add-link');

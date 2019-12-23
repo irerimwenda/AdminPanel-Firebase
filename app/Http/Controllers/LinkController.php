@@ -27,4 +27,22 @@ class LinkController extends Controller
 
         return view('pages.links', compact('all_links'));
     }
+
+    //Save Function
+    public function addLink(Request $request) {
+        $factory = (new Factory())
+            ->withServiceAccount(__DIR__.'/FBKey.json')
+            ->withDatabaseUri('https://laravel-a72e8.firebaseio.com/');
+
+        $database = $factory->createDatabase();
+
+        $ewLink = $database
+            ->getReference('Links')
+            ->push([
+                'LinkName' => $request->link_name,
+                'Link' => $request->link
+            ]);
+        
+        return back();
+    }
 }

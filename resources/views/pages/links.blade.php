@@ -9,7 +9,9 @@
 <div class="wrapper mb-3">
     <div class="box">
         <div class="box-header">
-          <h3 class="box-title">Manage Links</h3>
+          <h3 class="box-title">Manage Links 
+              <button href="" class="btn btn-primary btn-sm ml-5" data-toggle="modal" data-target="#modal-default">Add Link</button>
+          </h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -29,8 +31,9 @@
                     <td>{{$link['LinkName']}}</td>
                     <td><a href="{{$link['Link']}}">{{$link['Link']}}</a></td>
                     <td>
-                        <a href="http://">Edit</a> /
-                        <a href="http://">Delete</a>
+                        <a href="http://" style="color:green">Edit</a> /
+                        <a href="http://" style="color:red">Delete</a> /
+                        <a href="http://" style="color:gray">Add Tags</a>
                     </td>
                 </tr>
                 @endforeach()
@@ -48,7 +51,36 @@
         <!-- /.box-body -->
       </div>
       <!-- /.box -->
+
 </div>
+
+    <div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+            {{-- <h4 class="modal-title">Add Website Link</h4> --}}
+        </div>
+            <form action="{{route('add-link')}}" method="POST">
+                @csrf
+            <div class="modal-body">
+                <input type="text" placeholder="Website" class="form-control" name="link_name">
+                <br>
+                <input type="text" placeholder="www.example.com" class="form-control" name="link">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save link</button>
+            </div>
+            </form>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 
 @endsection()
 
