@@ -29,7 +29,7 @@
                 <tr>
                     <td><img src="" /></td>
                     <td>{{$link['LinkName']}}</td>
-                    <td><a href="{{$link['Link']}}">{{$link['Link']}}</a></td>
+                    <td><a href="{{$link['Link']}}" target="_blank">{{$link['Link']}}</a></td>
                     <td>
                         <a href="http://" style="color:green">Edit</a> /
                         <a href="http://" style="color:red">Delete</a> /
