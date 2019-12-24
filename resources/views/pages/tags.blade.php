@@ -9,8 +9,8 @@
 <div class="wrapper mb-3">
     <div class="box">
         <div class="box-header">
-          <h3 class="box-title">Manage Links 
-              <button href="" class="btn btn-primary btn-sm ml-5" data-toggle="modal" data-target="#modal-default">Add Link</button>
+          <h3 class="box-title">Add Tags 
+              <button href="" class="btn btn-primary btn-sm ml-5" data-toggle="modal" data-target="#modal-default">Add Tag</button>
           </h3>
         </div>
         <!-- /.box-header -->
@@ -19,21 +19,21 @@
             <thead>
             <tr>
               <th></th>
-              <th>Website</th>
-              <th>Link</th>
+              <th>Tag</th>
+              <th>Description</th>
               <th>Actions</th>
             </tr>
             </thead>
             <tbody>
-                @foreach($all_links as $link)
+                @foreach($all_tags as $tag)
                 <tr>
                     <td><img src="" /></td>
-                    <td>{{$link['LinkName']}}</td>
-                    <td><a href="{{$link['Link']}}">{{$link['Link']}}</a></td>
+                    <td>{{$tag['TagName']}}</td>
+                    <td>{{$tag['Description']}}</td>
                     <td>
                         <a href="http://" style="color:green">Edit</a> /
                         <a href="http://" style="color:red">Delete</a> /
-                        <a href="" style="color:gray">Add Tags</a>
+                        <a href="http://" style="color:gray">Add Topics</a>
                     </td>
                 </tr>
                 @endforeach()
@@ -60,12 +60,12 @@
             <span aria-hidden="true">&times;</span></button>
             {{-- <h4 class="modal-title">Add Website Link</h4> --}}
         </div>
-            <form action="{{route('add-link')}}" method="POST">
+            <form action="{{route('add-tag')}}" method="POST">
                 @csrf
             <div class="modal-body">
-                <input type="text" placeholder="Website" class="form-control" name="link_name">
+                <input type="text" placeholder="Tag Name" class="form-control" name="tag_name">
                 <br>
-                <input type="text" placeholder="www.example.com" class="form-control" name="link">
+                <textarea name="description" id="description" cols="30" rows="10" class="form-control"></textarea>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
