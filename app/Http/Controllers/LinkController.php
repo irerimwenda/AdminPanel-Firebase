@@ -19,10 +19,14 @@ class LinkController extends Controller
 
         $links = $reference->getValue();
 
-        $all_links = array();
+        //$all_links = array();
 
-        foreach($links as $link) {
-            array_push($all_links, $link);
+        foreach($links as $key => $link) {
+            //array_push($all_links, $link);
+            $all_links1 = $link;
+            $all_links1['key'] = $key;
+
+            $all_links[] = $all_links1;
         }
 
         return view('pages.links', compact('all_links'));

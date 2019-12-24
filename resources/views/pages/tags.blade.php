@@ -60,12 +60,12 @@
             <span aria-hidden="true">&times;</span></button>
             {{-- <h4 class="modal-title">Add Website Link</h4> --}}
         </div>
-            <form action="{{route('add-tag')}}" method="POST">
+            <form action="" method="POST">
                 @csrf
             <div class="modal-body">
                 <input type="text" placeholder="Tag Name" class="form-control" name="tag_name">
                 <br>
-                <textarea name="description" id="description" cols="30" rows="10" class="form-control"></textarea>
+                <textarea name="description" id="description" cols="30" rows="5" class="form-control"></textarea>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>

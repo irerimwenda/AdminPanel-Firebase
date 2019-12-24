@@ -30,19 +30,24 @@ class TagController extends Controller
     }
 
     //Save Function
-    public function addTag(Request $request) {
+    public function addTag(Request $request, $id) {
         $factory = (new Factory())
             ->withServiceAccount(__DIR__.'/FBKey.json')
             ->withDatabaseUri('https://laravel-a72e8.firebaseio.com/');
 
         $database = $factory->createDatabase();
 
+        $reference = $database->getReference("Tags");
+
         $ewLink = $database
             ->getReference('Tags')
             ->push([
                 'TagName' => $request->tag_name,
-                'Description' => $request->description
+                'Description' => $request->description,
+                'ParentLinkID' => $id
             ]);
+            
+        $data = $reference->orderByChild("ParentLinkID")->equalTo($id)->getValue();
         
         return back();
     }

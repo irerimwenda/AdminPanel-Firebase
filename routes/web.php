@@ -23,5 +23,5 @@ Route::get('/links', 'LinkController@index')->name('link');
 Route::post('/add-link', 'LinkController@addLink')->name('add-link');
 
 Route::get('/link/{id}/tags', 'TagController@index')->name('tags');
-Route::post('/add-tag', 'TagController@addTag')->name('add-tag');
+Route::post('/link/{id}/tags', 'TagController@addTag')->name('add-tag');
 

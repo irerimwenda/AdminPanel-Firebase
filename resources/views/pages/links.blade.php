@@ -33,7 +33,7 @@
                     <td>
                         <a href="http://" style="color:green">Edit</a> /
                         <a href="http://" style="color:red">Delete</a> /
-                        <a href="" style="color:gray">Add Tags</a>
+                        <a href="/link/{{$link['key']}}/tags" style="color:gray">Add Tags</a>
                     </td>
                 </tr>
                 @endforeach()
